@@ -1,19 +1,19 @@
-Build client image:
+Reproduced with ubuntu kernels:
+-  linux-image-4.10.0-32-generic=4.10.0-32.36~16.04.1
+
+Run the samba server:
 ```
-docker build -t client-smb:1 .
+./run-server.sh
 ```
 
-Run server:
+Build the docker container & do a cifs mount + umount in a loop
 ```
-docker run -it --rm --name samba -p 139:139 -p 445:445 -v $PWD/exports:/share dperson/samba -s "public;/share"
+./run-client.sh
 ```
 
-Run client in a loop:
+The following message will appear in the kernel log:
 ```
-while true; do
-    date
-    docker run -it --rm --name client-smb --cap-add=SYS_ADMIN --cap-add DAC_READ_SEARCH --link samba:samba client-smb:1
-    date
-    sleep 1
-done
+unregister_netdevice: waiting for lo to become free. Usage count = 1
 ```
+
+Some minutes later the kernel problems documented in kernel-logs/ appear.
