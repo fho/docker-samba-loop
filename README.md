@@ -3,7 +3,8 @@ Run the samba server:
 ./run-server.sh
 ```
 
-Build the docker container & do a cifs mount + umount in a loop
+Build the docker container & do in parallel cifs mount + umount in docker
+containers
 ```
 ./run-client.sh
 ```
