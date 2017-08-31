@@ -1,6 +1,3 @@
-Reproduced with ubuntu kernels:
--  linux-image-4.10.0-32-generic=4.10.0-32.36~16.04.1
-
 Run the samba server:
 ```
 ./run-server.sh
