@@ -1,0 +1,71 @@
+kernel package: linux-image-4.10.0-32-generic=4.10.0-32.36~16.04.1
+
+[  +8.970850] general protection fault: 0000 [#1] SMP
+[  +0.005011] Modules linked in: cmac arc4 md4 cifs ccm fscache veth xt_nat xt_tcpudp ipt_MASQUERADE nf_nat_masquerade_ipv4 xfrm_user xfrm_algo iptable_nat nf_conntrack_ipv4
+nf_defrag_ipv4 nf_nat_ipv4 xt_addrtype xt_conntrack nf_nat nf_conntrack br_netfilter bridge stp llc aufs ip6table_filter ip6_tables iptable_filter ip_tables x_tables ppdev in
+put_leds serio_raw parport_pc parport pvpanic ib_iser rdma_cm iw_cm ib_cm ib_core configfs iscsi_tcp libiscsi_tcp libiscsi scsi_transport_iscsi autofs4 btrfs raid10 raid456 a
+sync_raid6_recov async_memcpy async_pq async_xor async_tx xor raid6_pq libcrc32c raid1 raid0 multipath linear crct10dif_pclmul crc32_pclmul ghash_clmulni_intel pcbc aesni_int
+el aes_x86_64 crypto_simd glue_helper cryptd psmouse virtio_net virtio_scsi
+[  +0.067683] CPU: 0 PID: 1842 Comm: dockerd Not tainted 4.10.0-32-generic #36~16.04.1-Ubuntu
+[  +0.008483] Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 01/01/2011
+[  +0.009445] task: ffff8f09e850da00 task.stack: ffffba3900f90000
+[  +0.006025] RIP: 0010:rb_erase+0x35/0x350
+[  +0.004107] RSP: 0018:ffffba3900f93798 EFLAGS: 00010286
+[  +0.005333] RAX: ffff8f09d216c3ee RBX: ffff8f09d20f9988 RCX: 8f09d20f98080000
+[  +0.007263] RDX: 8f09d20f98080000 RSI: ffff8f09d52cf648 RDI: ffff8f09d216c4e8
+[  +0.007336] RBP: ffffba3900f93798 R08: ffff8f09d216c528 R09: 0000000000000000
+[  +0.007238] R10: ffff8f09d216c608 R11: ffffffff90792d01 R12: ffff8f09d216c400
+[  +0.007321] R13: ffff8f09e977aa10 R14: ffff8f09d20b6000 R15: 0000000000000000
+[  +0.007253] FS:  00007f99d4c3c700(0000) GS:ffff8f09efc00000(0000) knlGS:0000000000000000
+[  +0.008197] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  +0.005931] CR2: 000000c8203bb000 CR3: 0000000128a8d000 CR4: 00000000001406f0
+[  +0.007340] DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000                                                                                               [  +0.007323] DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400
+[  +0.008110] Call Trace:
+[  +0.002562]  erase_header+0x46/0x60
+[  +0.003599]  drop_sysctl_table+0x6c/0xe0
+[  +0.004030]  ? find_next_bit+0x15/0x20
+[  +0.003852]  ? __snmp6_fill_stats64.isra.45+0x101/0x130
+[  +0.005332]  unregister_sysctl_table+0x3e/0x90
+[  +0.004553]  unregister_net_sysctl_table+0xe/0x10
+[  +0.004806]  neigh_sysctl_unregister+0x23/0x30
+[  +0.004559]  inetdev_event+0x1a6/0x4f0
+[  +0.003851]  ? skb_dequeue+0x59/0x70
+[  +0.003675]  notifier_call_chain+0x4a/0x70
+[  +0.004197]  raw_notifier_call_chain+0x16/0x20
+[  +0.004543]  call_netdevice_notifiers_info+0x35/0x60
+[  +0.005064]  dev_change_net_namespace+0xcb/0x3e0
+[  +0.004719]  ? ns_capable_common+0x68/0x80
+[  +0.004209]  do_setlink+0xa7/0xdf0
+[  +0.003509]  ? inet6_fill_link_af+0x1a/0x30
+[  +0.004288]  ? skb_queue_tail+0x43/0x50
+[  +0.004161]  ? __netlink_sendskb+0x3e/0x60
+[  +0.004195]  ? nla_parse+0xa0/0x100
+[  +0.003586]  rtnl_setlink+0x100/0x140
+[  +0.003764]  ? has_capability+0x30/0x30
+[  +0.003936]  rtnetlink_rcv_msg+0xe6/0x220
+[  +0.004111]  ? __kmalloc_node_track_caller+0x1ef/0x2c0
+[  +0.005237]  ? __alloc_skb+0x87/0x1e0
+[  +0.003770]  ? rtnl_newlink+0x890/0x890
+[  +0.003935]  netlink_rcv_skb+0xa4/0xc0
+[  +0.003847]  rtnetlink_rcv+0x28/0x30
+[  +0.003675]  netlink_unicast+0x18c/0x240
+[  +0.004019]  netlink_sendmsg+0x2fb/0x3a0
+[  +0.004023]  ? aa_sock_msg_perm+0x61/0x150
+[  +0.004196]  sock_sendmsg+0x38/0x50
+[  +0.003586]  SYSC_sendto+0x101/0x190
+[  +0.003681]  ? putname+0x54/0x60
+[  +0.003326]  ? do_sys_open+0x1b4/0x280
+[  +0.003851]  SyS_sendto+0xe/0x10
+[  +0.003439]  entry_SYSCALL_64_fastpath+0x1e/0xad
+[  +0.004714] RIP: 0033:0x6b9bfa
+[  +0.003152] RSP: 002b:000000c820ca7330 EFLAGS: 00000206 ORIG_RAX: 000000000000002c
+[  +0.007670] RAX: ffffffffffffffda RBX: 000000c8206e7200 RCX: 00000000006b9bfa
+[  +0.007240] RDX: 0000000000000028 RSI: 000000c820d6c510 RDI: 0000000000000009
+[  +0.007245] RBP: 0000000000000000 R08: 000000c82044d9f4 R09: 000000000000000c
+[  +0.007234] R10: 0000000000000000 R11: 0000000000000206 R12: 000000c820d6c390
+[  +0.007244] R13: 0000000000000000 R14: 0000000000000001 R15: 0000000000000008
+[  +0.007237] Code: 89 e5 48 85 c9 0f 84 88 00 00 00 4d 85 c0 0f 84 b1 00 00 00 49 8b 50 10 4c 89 c0 48 85 d2 75 0b e9 28 02 00 00 48 89 d0 48 89 ca <48> 8b 4a 10 48 85 c9 75
+ f1 4c 8b 4a 08 49 89 d2 4c 89 48 10 4c
+[  +0.019062] RIP: rb_erase+0x35/0x350 RSP: ffffba3900f93798
+[  +0.005643] ---[ end trace 4911a7d7bfc99863 ]---
+

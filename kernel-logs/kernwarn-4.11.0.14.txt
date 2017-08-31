@@ -1,0 +1,52 @@
+linux-image-4.11.0-14-generic=4.11.0-14.20~16.04.1
+
+(independent run of kernoops-4.11.0.14.txt, let it run for 20min more, no oops happened afterwards)
+
+[  +0.000824] veth1389c8a: renamed from eth0
+[  +0.015372] ------------[ cut here ]------------
+[  +0.000012] WARNING: CPU: 0 PID: 3945 at
+/build/linux-hwe-edge-HLHSbp/linux-hwe-edge-4.11.0/net/ipv6/addrconf_core.c:160
+in6_dev_finish_destroy+0x86/0xc0
+[  +0.000001] Modules linked in: cmac arc4 md4 cifs ccm fscache xt_nat
+xt_tcpudp veth ipt_MASQUERADE nf_nat_masquerade_ipv4 xfrm_user xfrm_algo
+iptable_nat nf_conntrack_ipv4
+nf_defrag_ipv4 nf_nat_ipv4 xt_addrtype xt_conntrack nf_nat nf_conntrack
+br_netfilter bridge stp llc aufs ip6table_filter ip6_tables iptable_filter
+ip_tables x_tables ppdev in
+put_leds parport_pc pvpanic serio_raw parport ib_iser rdma_cm iw_cm ib_cm
+ib_core configfs iscsi_tcp libiscsi_tcp libiscsi scsi_transport_iscsi autofs4
+btrfs raid10 raid456 a
+sync_raid6_recov async_memcpy async_pq async_xor async_tx xor raid6_pq
+libcrc32c raid1 raid0 multipath linear crct10dif_pclmul crc32_pclmul
+ghash_clmulni_intel pcbc aesni_int
+el aes_x86_64 crypto_simd glue_helper cryptd psmouse virtio_net virtio_scsi
+[  +0.000059] CPU: 0 PID: 3945 Comm: kworker/u2:7 Not tainted 4.11.0-14-generic
+#20~16.04.1-Ubuntu
+[  +0.000001] Hardware name: Google Google Compute Engine/Google Compute
+Engine, BIOS Google 01/01/2011
+[  +0.000005] Workqueue: netns cleanup_net
+[  +0.000001] Call Trace:
+[  +0.000009]  dump_stack+0x63/0x90
+[  +0.000003]  __warn+0xcb/0xf0
+[  +0.000002]  warn_slowpath_null+0x1d/0x20
+[  +0.000003]  in6_dev_finish_destroy+0x86/0xc0
+[  +0.000004]  ip6_route_dev_notify+0x11d/0x130
+[  +0.000003]  notifier_call_chain+0x4a/0x70
+[  +0.000002]  raw_notifier_call_chain+0x16/0x20
+[  +0.000002]  call_netdevice_notifiers_info+0x35/0x60
+[  +0.000003]  netdev_run_todo+0x174/0x340
+[  +0.000002]  ? rollback_registered_many+0x3b6/0x420
+[  +0.000004]  rtnl_unlock+0xe/0x10
+[  +0.000003]  default_device_exit_batch+0x147/0x170
+[  +0.000005]  ? do_wait_intr_irq+0x90/0x90
+[  +0.000001]  ops_exit_list.isra.6+0x52/0x60
+[  +0.000002]  cleanup_net+0x1c8/0x2b0
+[  +0.000004]  process_one_work+0x16b/0x4a0
+[  +0.000002]  worker_thread+0x4b/0x500
+[  +0.000003]  kthread+0x109/0x140
+[  +0.000001]  ? process_one_work+0x4a0/0x4a0
+[  +0.000002]  ? kthread_create_on_node+0x70/0x70
+[  +0.000004]  ret_from_fork+0x25/0x30
+[  +0.000002] ---[ end trace 0e0e951d75698c2b ]---
+[  +0.000002] Freeing alive inet6 device ffff935f40748000
+

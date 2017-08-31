@@ -1,0 +1,47 @@
+linux-image-4.11.0-14-generic=4.11.0-14.20~16.04.1
+
+[  +0.020598] BUG: unable to handle kernel paging request at 0000000100000062
+[  +0.007811] IP: kill_css+0x5/0x60
+[  +0.003422] PGD 0
+
+[  +0.003752] Oops: 0000 [#1] SMP
+[  +0.003252] Modules linked in: cmac arc4 md4 cifs ccm fscache xt_nat xt_tcpudp veth ipt_MASQUERADE nf_nat_masquerade_ipv4 xfrm_user xfrm_algo iptable_nat nf_conntrack_ipv4
+nf_defrag_ipv4 nf_nat_ipv4 xt_addrtype xt_conntrack nf_nat nf_conntrack br_netfilter bridge stp llc aufs ip6table_filter ip6_tables iptable_filter ip_tables x_tables ppdev in
+put_leds serio_raw parport_pc pvpanic parport ib_iser rdma_cm iw_cm ib_cm ib_core configfs iscsi_tcp libiscsi_tcp libiscsi scsi_transport_iscsi autofs4 btrfs raid10 raid456 a
+sync_raid6_recov async_memcpy async_pq async_xor async_tx xor raid6_pq libcrc32c raid1 raid0 multipath linear crct10dif_pclmul crc32_pclmul ghash_clmulni_intel pcbc aesni_int
+el aes_x86_64 crypto_simd glue_helper cryptd psmouse virtio_net virtio_scsi
+[  +0.067622] CPU: 0 PID: 1 Comm: systemd Not tainted 4.11.0-14-generic #20~16.04.1-Ubuntu
+[  +0.008197] Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 01/01/2011
+[  +0.009440] task: ffff94da2aef5a00 task.stack: ffffbcc58062c000
+[  +0.006040] RIP: 0010:kill_css+0x5/0x60
+[  +0.003941] RSP: 0018:ffffbcc58062fe28 EFLAGS: 00010206
+[  +0.005329] RAX: ffff94da292e2950 RBX: ffff94da292e28f0 RCX: ffff94da292e2960
+[  +0.007251] RDX: ffff94da292e2960 RSI: 0000000000000000 RDI: 00000000ffffffee
+[  +0.007261] RBP: ffffbcc58062fe50 R08: ffff94da2a068800 R09: ffff94da00281180
+[  +0.007239] R10: ffff94da0d93b03e R11: ffff94da00a15990 R12: ffff94da292e2800
+[  +0.007246] R13: 0000000000000000 R14: ffff94da292e2958 R15: 0000000000000000
+[  +0.007244] FS:  00007f51ae4d88c0(0000) GS:ffff94da2fc00000(0000) knlGS:0000000000000000
+[  +0.008209] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  +0.005953] CR2: 0000000100000062 CR3: 0000000129ef5000 CR4: 00000000001406f0
+[  +0.007267] DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+[  +0.007249] DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400
+[  +0.007334] Call Trace:
+[  +0.002561]  ? cgroup_destroy_locked+0xa5/0xf0
+[  +0.004565]  cgroup_rmdir+0x2c/0x90
+[  +0.003612]  kernfs_iop_rmdir+0x4d/0x80
+[  +0.003962]  vfs_rmdir+0xb4/0x130
+[  +0.003421]  do_rmdir+0x1c7/0x1e0
+[  +0.003424]  SyS_rmdir+0x16/0x20
+[  +0.003337]  entry_SYSCALL_64_fastpath+0x1e/0xad
+[  +0.004729] RIP: 0033:0x7f51acac4ab7
+[  +0.003677] RSP: 002b:00007fffe3623a78 EFLAGS: 00000202 ORIG_RAX: 0000000000000054
+[  +0.007683] RAX: ffffffffffffffda RBX: 0000000000000010 RCX: 00007f51acac4ab7
+[  +0.007241] RDX: 0000000000000000 RSI: 0000000000000000 RDI: 000000ea64036ec0
+[  +0.007251] RBP: fffffffffffffe40 R08: 0000000000000100 R09: 0000000000000001
+[  +0.007238] R10: 0000000000000100 R11: 0000000000000202 R12: 0000000000000000
+[  +0.007244] R13: fffffffffffffe40 R14: 00007fffe3623950 R15: 000000ea64036ec0
+[  +0.007263] Code: ff 49 8b 44 24 08 48 8b 53 60 48 05 b8 00 00 00 48 8d 5a a0 48 39 c2 75 d8 5b 41 5c 41 5d 5d f3 c3 0f 1f 44 00 00 0f 1f 44 00 00 <8b> 47 74 a8 10 74 01 c3
+ 55 83 c8 10 48 89 e5 53 48 89 fb 89 47
+[  +0.018998] RIP: kill_css+0x5/0x60 RSP: ffffbcc58062fe28
+[  +0.005422] CR2: 0000000100000062
+[  +0.003640] ---[ end trace 3e66f2480743b90c ]---
