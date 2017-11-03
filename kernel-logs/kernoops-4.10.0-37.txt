@@ -1,0 +1,86 @@
+linux-image-4.10.0-37-generic=4.10.0-37.41~16.04.1
+
+[ 1416.790240] device veth07520dd entered promiscuous mode
+[ 1416.790410] IPv6: ADDRCONF(NETDEV_UP): veth07520dd: link is not ready
+[ 1416.790412] docker0: port 2(veth07520dd) entered blocking state
+[ 1416.790421] docker0: port 2(veth07520dd) entered forwarding state
+[ 1417.603949] docker0: port 2(veth07520dd) entered disabled state
+[ 1426.787963] unregister_netdevice: waiting for lo to become free. Usage count = 1
+[ 1436.867939] unregister_netdevice: waiting for lo to become free. Usage count = 1
+[ 1446.947945] unregister_netdevice: waiting for lo to become free. Usage count = 1
+[ 1457.027961] unregister_netdevice: waiting for lo to become free. Usage count = 1
+[ 1467.107957] unregister_netdevice: waiting for lo to become free. Usage count = 1
+[ 1477.187956] unregister_netdevice: waiting for lo to become free. Usage count = 1
+[ 1487.267954] unregister_netdevice: waiting for lo to become free. Usage count = 1
+[ 1497.347964] unregister_netdevice: waiting for lo to become free. Usage count = 1
+[ 1507.427962] unregister_netdevice: waiting for lo to become free. Usage count = 1
+[ 1517.507966] unregister_netdevice: waiting for lo to become free. Usage count = 1
+[ 1527.587976] unregister_netdevice: waiting for lo to become free. Usage count = 1
+[ 1536.850880] docker0: port 2(veth07520dd) entered disabled state
+[ 1536.851241] BUG: unable to handle kernel NULL pointer dereference at           (null)
+[ 1536.860273] IP: rb_erase+0x194/0x350
+[ 1536.863997] PGD 129319067 
+[ 1536.863997] PUD 12922c067 
+[ 1536.866804] PMD 0 
+
+[ 1536.873320] Oops: 0000 [#1] SMP
+[ 1536.876580] Modules linked in: cmac arc4 md4 cifs ccm fscache xt_nat xt_tcpudp veth ipt_MASQUERADE nf_nat_masquerade_ipv4 xfrm_user xfrm_algo iptable_nat nf_conntrack_ipv4 nf_defrag_ipv4 nf_nat_ipv4 xt_addrtype xt_conntrack nf_nat nf_conntrack br_netfilter bridge stp llc aufs ip6table_filter ip6_tables iptable_filter ip_tables x_tables ppdev input_leds serio_raw pvpanic parport_pc parport ib_iser rdma_cm iw_cm ib_cm ib_core configfs iscsi_tcp libiscsi_tcp libiscsi scsi_transport_iscsi autofs4 btrfs raid10 raid456 async_raid6_recov async_memcpy async_pq async_xor async_tx xor raid6_pq libcrc32c raid1 raid0 multipath linear crct10dif_pclmul crc32_pclmul ghash_clmulni_intel pcbc aesni_intel aes_x86_64 crypto_simd glue_helper cryptd psmouse virtio_net virtio_scsi
+[ 1536.943943] CPU: 0 PID: 3387 Comm: dockerd Not tainted 4.10.0-37-generic #41~16.04.1-Ubuntu
+[ 1536.952396] Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 01/01/2011
+[ 1536.961719] task: ffff8cb8692b2d00 task.stack: ffffb88d81ca0000
+[ 1536.967745] RIP: 0010:rb_erase+0x194/0x350
+[ 1536.971943] RSP: 0018:ffffb88d81ca37e8 EFLAGS: 00010246
+[ 1536.977269] RAX: ffff8cb8532b67d0 RBX: ffff8cb8533352c8 RCX: 0000000000000000
+[ 1536.984510] RDX: 0000000000000000 RSI: ffff8cb8531f2e48 RDI: ffff8cb8532b6988
+[ 1536.991746] RBP: ffffb88d81ca37e8 R08: 0000000000000000 R09: ffff8cb8532b6a29
+[ 1536.998995] R10: ffff8cb8532b67d0 R11: ffffffff93d93200 R12: ffff8cb8532b6800
+[ 1537.006231] R13: ffff8cb85329a328 R14: ffff8cb85329a400 R15: ffff8cb85329a408
+[ 1537.013468] FS:  00007f42ae0e4700(0000) GS:ffff8cb86fc00000(0000) knlGS:0000000000000000
+[ 1537.021661] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[ 1537.027509] CR2: 0000000000000000 CR3: 0000000115459000 CR4: 00000000000406f0
+[ 1537.034753] DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+[ 1537.041999] DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400
+[ 1537.049244] Call Trace:
+[ 1537.051805]  erase_header+0x46/0x60
+[ 1537.055394]  drop_sysctl_table+0x6c/0xe0
+[ 1537.059415]  unregister_sysctl_table+0x3e/0x90
+[ 1537.063959]  unregister_net_sysctl_table+0xe/0x10
+[ 1537.068773]  neigh_sysctl_unregister+0x23/0x30
+[ 1537.073319]  addrconf_ifdown+0x4c1/0x5e0
+[ 1537.077344]  addrconf_notify+0x1f5/0xc00
+[ 1537.081543]  ? _raw_spin_unlock_bh+0x1e/0x20
+[ 1537.085916]  ? rt_flush_dev+0x41/0xd0
+[ 1537.089698]  notifier_call_chain+0x4a/0x70
+[ 1537.093903]  raw_notifier_call_chain+0x16/0x20
+[ 1537.098447]  call_netdevice_notifiers_info+0x35/0x60
+[ 1537.103511]  rollback_registered_many+0x2e6/0x420
+[ 1537.108316]  unregister_netdevice_many+0x1e/0xb0
+[ 1537.113034]  rtnl_delete_link+0x4b/0x70
+[ 1537.116980]  rtnl_dellink+0xcb/0x1d0
+[ 1537.120667]  ? ns_capable+0x13/0x20
+[ 1537.124343]  rtnetlink_rcv_msg+0xe6/0x220
+[ 1537.128454]  ? __kmalloc_node_track_caller+0x1ef/0x2c0
+[ 1537.133697]  ? __alloc_skb+0x87/0x1e0
+[ 1537.137462]  ? rtnl_newlink+0x890/0x890
+[ 1537.141408]  netlink_rcv_skb+0xa4/0xc0
+[ 1537.145256]  rtnetlink_rcv+0x28/0x30
+[ 1537.148948]  netlink_unicast+0x18c/0x240
+[ 1537.152974]  netlink_sendmsg+0x2fb/0x3a0
+[ 1537.157001]  ? aa_sock_msg_perm+0x61/0x150
+[ 1537.161201]  sock_sendmsg+0x38/0x50
+[ 1537.164790]  SYSC_sendto+0x101/0x190
+[ 1537.168472]  ? free_nsproxy+0x6d/0x90
+[ 1537.172238]  ? switch_task_namespaces+0x5c/0x70
+[ 1537.176880]  SyS_sendto+0xe/0x10
+[ 1537.180214]  entry_SYSCALL_64_fastpath+0x1e/0xad
+[ 1537.184933] RIP: 0033:0x6b9bfa
+[ 1537.188088] RSP: 002b:000000c820c241a8 EFLAGS: 00000216 ORIG_RAX: 000000000000002c
+[ 1537.195756] RAX: ffffffffffffffda RBX: 000000c820673380 RCX: 00000000006b9bfa
+[ 1537.202990] RDX: 0000000000000020 RSI: 000000c8210ceec0 RDI: 000000000000000a
+[ 1537.210232] RBP: 0000000000000000 R08: 000000c8206af454 R09: 000000000000000c
+[ 1537.217474] R10: 0000000000000000 R11: 0000000000000216 R12: 00000000395577cc
+[ 1537.224710] R13: 0000000ed18e32a0 R14: 0000000ed18e32a0 R15: 0000000002b53980
+[ 1537.231947] Code: 10 f6 c2 01 0f 84 d3 00 00 00 48 83 e2 fc 0f 84 1e ff ff ff 48 89 c1 48 89 d0 48 8b 50 08 48 39 ca 0f 85 71 ff ff ff 48 8b 50 10 <f6> 02 01 75 3a 48 8b 7a 08 48 89 c1 48 83 c9 01 48 89 78 10 48 
+[ 1537.250936] RIP: rb_erase+0x194/0x350 RSP: ffffb88d81ca37e8
+[ 1537.256608] CR2: 0000000000000000
+[ 1537.260171] ---[ end trace efac599fa59cc30f ]---
